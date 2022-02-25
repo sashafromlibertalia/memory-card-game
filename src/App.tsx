@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './components/Card';
 import Footer from "./components/Footer";
+import Field from "./components/Field";
 
 function App() {
     return (
@@ -9,11 +9,9 @@ function App() {
                 <h1>Memory card game</h1>
             </section>
             <section id="cards-container">
-                <Card/>
+                <Field/>
             </section>
-            <section>
-                <Footer/>
-            </section>
+            <Footer/>
         </div>
     );
 }

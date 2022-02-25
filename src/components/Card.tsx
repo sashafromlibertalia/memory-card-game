@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components'
-import shuffleCardData from "../common/helpers/shuffleCardData";
 
 const Card = () => {
+    const data = ["🌍", "🍉", "⛩", "🦚", "🌼", "🍇"]
+    const [emoji, setEmoji] = useState(data[Math.floor(Math.random() * data.length)])
+
     const Wrapper = styled.div`
       background: #fbfdfd;
       border-radius: 12px;
@@ -18,7 +20,7 @@ const Card = () => {
     `
     return (
         <Wrapper>
-            {shuffleCardData}
+            {emoji}
         </Wrapper>
     );
 };
