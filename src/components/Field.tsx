@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Card from "./Card";
 import CardsData from "../common/cards.data";
 
-const Grid = styled.div`
+const FieldGrid = styled.div`
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   grid-template-columns: repeat(4, 1fr);
 `
 
@@ -18,9 +18,9 @@ const Field = () => {
     }
 
     return (
-        <Grid>
+        <FieldGrid>
             {container}
-        </Grid>
+        </FieldGrid>
     );
 };
 

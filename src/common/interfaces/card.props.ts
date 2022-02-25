@@ -1,5 +1,3 @@
-interface CardProps {
+export default interface CardProps {
     data: string;
 }
-
-export default CardProps;

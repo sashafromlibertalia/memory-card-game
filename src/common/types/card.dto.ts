@@ -1,6 +1,4 @@
-type CardDTO = {
+export type CardDTO = {
     data: string,
     isPicked: boolean,
 }
-
-export default CardDTO;

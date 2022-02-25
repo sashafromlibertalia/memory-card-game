@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import CardProps from "../common/interfaces/card.props";
 
-const Wrapper = styled.div`
+const CardWrapper = styled.div`
   background: #fbfdfd;
   border-radius: 12px;
   width: 10rem;
@@ -24,9 +24,9 @@ const Wrapper = styled.div`
 
 const Card = ({data}: CardProps) => {
     return (
-        <Wrapper>
+        <CardWrapper>
             {data}
-        </Wrapper>
+        </CardWrapper>
     );
 };
 
