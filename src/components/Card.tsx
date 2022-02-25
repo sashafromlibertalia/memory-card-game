@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Card = () => {
     const data = ["🌍", "🍉", "⛩", "🦚", "🌼", "🍇"]
-    const [emoji, setEmoji] = useState(data[Math.floor(Math.random() * data.length)])
+    const [emoji] = useState(data[Math.floor(Math.random() * data.length)])
 
     const Wrapper = styled.div`
       background: #fbfdfd;
@@ -18,6 +18,7 @@ const Card = () => {
       text-align: center;
       cursor: pointer;
     `
+
     return (
         <Wrapper>
             {emoji}

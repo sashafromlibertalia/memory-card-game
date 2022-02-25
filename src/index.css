@@ -2,13 +2,16 @@
 
 :root {
     --text: #1e1e25;
-    --background: #EEF2F4;
+    --background: #eef4f7;
+    --selection: #2061f3;
+    --secondary: #556085;
 }
 
 ::selection {
     color: var(--background);
-    background: #2061f3;
+    background: var(--selection);
 }
+
 
 * {
     box-sizing: border-box;
@@ -16,19 +19,43 @@
 
 html, body, #root, #game {
     height: 100%;
+    width: 100%;
     margin: 0;
     background: var(--background);
 }
 
-body {
-    padding: 2rem 5rem;
+footer {
+    width: 100%;
 }
 
-p {
+body {
+    padding: 3rem 5rem;
+}
+
+
+p, h5, h6, a {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin: 0;
-    color: #556085;
+    font-weight: normal;
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 200ms ease;
+}
+
+a:hover {
+    color: var(--selection);
+}
+
+
+h5, h6 {
+    margin-top: 0.5rem;
 }
 
 h1 {
@@ -50,4 +77,6 @@ h1 {
 
 #cards-container {
     display: flex;
+    justify-content: center;
+    align-content: center;
 }
