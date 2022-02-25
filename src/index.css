@@ -2,16 +2,22 @@
 
 :root {
     --text: #1e1e25;
+    --background: #EEF2F4;
+}
+
+::selection {
+    color: var(--background);
+    background: #2061f3;
 }
 
 * {
     box-sizing: border-box;
 }
 
-html, body {
+html, body, #root, #game {
     height: 100%;
     margin: 0;
-    background: #EEF2F4;
+    background: var(--background);
 }
 
 body {
@@ -31,4 +37,16 @@ h1 {
     margin: 0;
     color: var(--text);
     text-align: center;
+}
+
+#game {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#cards-container {
+    display: flex;
 }
