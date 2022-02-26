@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import Card from "./Card";
 import {cardsData, shuffle} from "../common/cards.data";
+import ShuffleGame from "./ShuffleGame";
 
 const FieldWrapper = styled.div`
   display: flex;
@@ -23,16 +24,22 @@ const ResultTitle = styled.h5`
 `
 
 const Field = () => {
-    const [cards] = useState(() => shuffle(cardsData))
+    const [cards, setCards] = useState(() => shuffle(cardsData))
     const [isFlipped, setIsFlipped] = useState(Array<boolean>(cards.length).fill(false))
     const [foundCards, setFoundCards] = useState(new Set<string>())
 
-    const resetField = () => {
+    const updateField = () => {
         setTimeout(() => {
             // Hides all cards which are not in the Set
             setIsFlipped(Array<boolean>(cards.length).fill(false)
                 .map((status, index) => foundCards.has(cards[index])))
         }, 1000)
+    }
+    
+    const resetField = () => {
+        setCards(() => shuffle(cardsData))
+        setIsFlipped(Array<boolean>(cards.length).fill(false))
+        setFoundCards(new Set<string>())
     }
 
     const isGameOver = () => {
@@ -53,7 +60,7 @@ const Field = () => {
         const lastFlippedCard: string = cards.filter((card, index) => !foundCards.has(card) && isFlipped[index])[0]
         if (!lastFlippedCard) return;
         if (lastFlippedCard !== cards[index]) {
-            resetField()
+            updateField()
             return;
         }
 
@@ -63,6 +70,7 @@ const Field = () => {
 
     return (
         <FieldWrapper>
+            <ShuffleGame onClick={resetField}/>
             {
                 isGameOver() ? <ResultTitle>You won 🎉</ResultTitle> : ""
             }
