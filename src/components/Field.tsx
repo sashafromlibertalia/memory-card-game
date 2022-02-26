@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import Card from "./Card";
-import CardsData from "../common/cards.data";
+import {cardsData, shuffle} from "../common/cards.data";
 
 const FieldGrid = styled.div`
   display: grid;
@@ -10,16 +10,24 @@ const FieldGrid = styled.div`
 `
 
 const Field = () => {
-    const AmountOfCards: number = 12
-    let container = []
+    const [cards, setCards] = useState(() => shuffle(cardsData))
+    const [isFlipped, setIsFlipped] = useState(Array<boolean>(cards.length).fill(false))
 
-    for (let i = 0; i < AmountOfCards; i++) {
-        container.push(<Card key={`Card-${i + 1}`} data={CardsData[i]}/>)
+    const handleFlip = (index: number) => {
+        setIsFlipped(isFlipped.map((n, i) => i === index ? !n : n))
     }
 
     return (
         <FieldGrid>
-            {container}
+            {
+                cards.map((data, index) => {
+                    return <Card key={index}
+                                 index={index}
+                                 isFlipped={isFlipped[index]}
+                                 data={data}
+                                 onClick={handleFlip}/>
+                })
+            }
         </FieldGrid>
     );
 };

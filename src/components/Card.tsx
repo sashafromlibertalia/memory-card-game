@@ -22,10 +22,14 @@ const CardWrapper = styled.div`
   }
 `
 
-const Card = ({data}: CardProps) => {
+const Card = (props: CardProps) => {
+    const handleClick = () => {
+        props.onClick(props.index);
+    };
+
     return (
-        <CardWrapper>
-            {data}
+        <CardWrapper onClick={handleClick}>
+            {props.isFlipped ? props.data : ""}
         </CardWrapper>
     );
 };
