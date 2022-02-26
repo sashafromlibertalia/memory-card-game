@@ -15,6 +15,11 @@ const FieldGrid = styled.div`
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (max-width: 520px) {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const ResultTitle = styled.h5`

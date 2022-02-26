@@ -12,9 +12,13 @@
     background: var(--selection);
 }
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
+
+
 
 html, body, #root, #game {
     height: 100%;
@@ -22,7 +26,6 @@ html, body, #root, #game {
     margin: 0;
     background: var(--background);
 }
-
 
 
 footer {
@@ -72,12 +75,33 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 #game {
     display: flex;
+    height: inherit;
     justify-content: space-between;
     align-content: center;
     flex-wrap: wrap;
     flex-direction: column;
+}
+
+@media screen and (max-width: 1300px) {
+    body, #root, #game {
+        height: auto;
+    }
+
+    #game {
+        flex-direction: row;
+        align-content: flex-start;
+    }
+
+    footer {
+        margin-top: 2rem;
+    }
+
+    #cards-container {
+        margin-top: 1rem;
+    }
 }

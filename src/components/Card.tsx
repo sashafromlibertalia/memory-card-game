@@ -20,6 +20,11 @@ const CardWrapper = styled.div`
   &:hover {
     background: #f2f8f8;
   }
+  
+  @media screen and (max-width: 568px) {
+    width: 3rem;
+    height: 3rem;
+  }
 `
 
 const Card = (props: CardProps) => {
