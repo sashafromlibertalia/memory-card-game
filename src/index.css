@@ -19,7 +19,6 @@
 }
 
 
-
 html, body, #root, #game {
     height: 100%;
     width: 100%;
@@ -82,19 +81,14 @@ section {
     display: flex;
     height: inherit;
     justify-content: space-between;
-    align-content: center;
     flex-wrap: wrap;
-    flex-direction: column;
+    align-content: space-between;
+    flex-direction: row;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1440px) {
     body, #root, #game {
         height: auto;
-    }
-
-    #game {
-        flex-direction: row;
-        align-content: flex-start;
     }
 
     footer {

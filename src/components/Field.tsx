@@ -38,7 +38,7 @@ const Field = () => {
             // Hides all cards which are not in the Set
             setIsFlipped(Array<boolean>(cards.length).fill(false)
                 .map((status, index) => foundCards.has(cards[index])))
-        }, 1000)
+        }, 500)
     }
     
     const resetField = () => {
